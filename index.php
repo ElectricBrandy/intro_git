@@ -1,28 +1,14 @@
 <?php
 
+$a = 70;
+$b = 70;
 
-$scores =[50,40,70,90,70];
-
-//echo $scores[0];
-//echo"<br>";
-
-//foreach($scores as $scores){
-//   echo $scores;
-//    echo $"<br>";
-// }
-
-$sum = 0;
-
-foreach($scores as $scores){
-    $sum = $sum + $scores;
-    
-    echo "現在のスコア";
-    echo $scores0;
-    echo"<br>";
-
-    echo "現在の合計点";
-    echo $sum;
-    echo"<br>";
+if($a > $b){
+    echo "a君はb君よりも点数が高い<br>";
+}else if($b>$a){
+    echo "b君はa君よりも点数が高い<br>";
+}else{
+    echo "a君とb君は同点です<br>";
 }
 
 ?>
