@@ -1,14 +1,38 @@
 <?php
 
-$a = 70;
-$b = 70;
 
-if($a > $b){
-    echo "a君はb君よりも点数が高い<br>";
-}else if($b>$a){
-    echo "b君はa君よりも点数が高い<br>";
-}else{
-    echo "a君とb君は同じ点数です<br>";
+// $a = "index";
+
+// if($a == "index"){
+//    echo "トップページです<br>";
+// } else if($a =="create") {
+//    echo "新規投稿ページです<br>";
+// } else if($a == "show") {
+//    echo "詳細表示ページです<br>";
+// } else if($a == "edit") {
+//    echo "編集画面です<br>";
+// } else {
+//    echo "該当しませんでした<br>";
+// }    
+
+
+$b = "sho";
+
+switch ($b) {
+    case "index":
+        echo "トップページです<br>";
+        break;
+    case "create": 
+        echo "新規投稿ページです<br>";
+        break;
+    case"show":
+        echo "詳細表示ページです<br>";
+        break;
+    case "edit":
+        echo "編集画面です<br>";
+        break;
+    default:
+        echo "該当しませんでした";
 }
 
 ?>
