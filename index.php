@@ -1,20 +1,25 @@
 <?php
-// for文
 
-for($i = 0; $i<10; $i++){
-    echo $i.":よろしくです";
-    echo "<br>";
-}
+$scores = [50,60,70,80,90];
+
+$tests = [
+    "japanese" => 50,
+    "math" => 60,
+    "Science" => 70,
+    "english" => 80,
+    "infomation" => 90,
+];
+
+echo $tests[math];
+ echo "<br>";
 
 
-//whole文
-$a = 0;
+$user = [
+    "name" => "yoshitaka",
+    "age" => 22,
+    "company" => "kishi　corporation",
+];
 
-while($a < 10){
-    echo $a. "よろしくです";
-    echo "<br>";
-    $a++;
-}
-
- 
+echo $user[name];
+    
 ?>
