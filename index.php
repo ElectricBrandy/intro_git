@@ -1,38 +1,60 @@
 <?php
 
-class Human{
-    //プロパティの宣言
-    protected $name = "名前<br>";             //publicだと他者が名前などを書き換えれてしまう            
-    protected $age ="年齢<br>";
-    protected $address ="居住地<br>";
+class Post {
+    Private $DB_HOST ="192.168.33.10";
+    private $DB_NAME ="kishi_base";
+    private $DB_USER ="root";
+    private $DB_PASSWORD ="Yokashita48699684@";
 
-    //メソッド
-    public function __construct($name,$age,$address){
-        $this->name = $name."<br>";
-        $this->age = $age."<br>";
-        $this->address = $address."<br>";
+    protected function db_access() {
+        //PHPがエラーを吐くように設定　下の一文
+        error_reporting(E_ALL & ~E_NOTICE);
+
+        //データベースへの接続 dbh　php pdoとGoogle検索　そこから引用
+        try {
+            $dbh = new PDO('mysql:host='.$this->DB_HOST.';dbname='.$this->DB_NAME, $this->DB_USER, $this->DB_PASSWORD);
+            return $dbh;
+        } catch (PDOException $e) {
+            echo "エラー!: " . $e->getMessage() . "<br/>";
+            die();
+        }
     }
-    public function getName(){
-        return $this->name;
-    }
-    public function getAge(){
-        return $this->age;
-    }
-    public function getAddress(){
-        return $this->address;
+
+    public function index() {
+        $dbh = $this->db_access();
+
+        $sql = 'SELECT * FROM posts';
+        $stmt = $dbh->prepare($sql);
+        
+        $stmt->execute();
+        $result = $stmt->fetchALL(PDO::FETCH_ASSOC);
+       
+        return $result;
     }
 }
 
-$kishi = new Human("kishiYoshitaka",22,"ehime");
-echo $kishi->getName();
-echo $kishi->getAge();
-echo $kishi->getAddress();
+$postmodel = new Post();
+$result = $postmodel->index();
+$posts = $result;
 
-$kawabata = new Human("kawabata yasunari",72,"oosaka");
-echo $kawabata->getName();
-echo $kawabata->getAge();
-echo $kawabata->getAddress();
-// echo $kishi->name; 
-// echo $kishi->age; 
-// echo $kishi->address; 
+//var_dump($posts[0]["title"]);
 ?>
+
+<!DOCTYPE html>
+<html lang="jn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php foreach($posts as $post):?> 
+        <div>
+            <h1><?php echo $post["title"];?></h1>
+        </div>
+        <div>
+            <p><?php echo $post["body"];?></p>
+        </div>
+    <?php endforeach; ?> 
+</body>
+</html>
