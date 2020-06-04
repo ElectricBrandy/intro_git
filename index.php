@@ -1,5 +1,6 @@
 <?php
 
+//3~35までMODELの部分
 class Post {
     Private $DB_HOST ="192.168.33.10";
     private $DB_NAME ="kishi_base";
@@ -33,11 +34,13 @@ class Post {
     }
 }
 
+//38~42　CONTROLLERの部分
 $postmodel = new Post();
 $result = $postmodel->index();
 $posts = $result;
 
 //var_dump($posts[0]["title"]);
+//４６ ~６３までVIEWの部分
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +48,7 @@ $posts = $result;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>hacks</title>
 </head>
 <body>
     <?php foreach($posts as $post):?> 
