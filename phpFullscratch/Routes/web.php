@@ -8,8 +8,11 @@ $params = explode("/", $url_text);
 // var_dump ($params[1]."<br>");
 
 $webroot = $_SERVER['DOCUMENT_ROOT'];
+$models = $webroot."/../app/";
+$views = $webroot."/../resources/views/";
+
 include($webroot."/../app/HTTP/Controllers/PostsController.php");
-$postsController = new PostsController();
+$postsController = new PostsController($models, $views);
 
 switch ($params[0]){
     case"":
