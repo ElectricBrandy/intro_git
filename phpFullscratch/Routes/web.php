@@ -21,4 +21,10 @@ switch ($params[0]){
     case "create":
         $postsController->create();  
         break;
+    case "show":
+        $postsController->show();  
+        break;
+    case "edit":
+        $postsController->edit();  
+        break;
 }

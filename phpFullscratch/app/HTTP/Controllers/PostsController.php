@@ -26,13 +26,26 @@ class PostsController
         $posts = $result;
         //viewを呼び出す
         include($this->views."posts/index.php");
-
-   }
-   public function create()
+    }
+  
+    public function create()
    {
-       echo "This is Create Page.";
+    $values = $this->init();
+    include($this->views."posts/create.php");
    }
+   public function show()
+   {
+    $values = $this->init();
+    include($this->views."posts/show.php");
+   }
+   public function edit()
+   {
+    $values = $this->init();
+    include($this->views."posts/edit.php");
+   }
+
 }
+
 
 
 

@@ -8,7 +8,7 @@
     <main>
         <div class="container">  
             <div class="my-4">
-                <a href="create" class="btn btn-danger">
+                <a href="/create" class="btn btn-primary">
                    投稿を新規作成する
                 </a>
             </div>
@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <p><?php echo $post["body"];?></p>
                     
-                        <a class="card-link" href="show">
+                        <a class="card-link" href="/show">
                             詳細を見る
                         </a>
                     </div>
