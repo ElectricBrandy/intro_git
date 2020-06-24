@@ -15,12 +15,13 @@
             <?php foreach($posts as $post):?> 
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h2><?php echo $post["title"];?></h1>
+                        <h2><?php echo $post["title"];?></h2>
                     </div>
                     <div class="card-body">
                         <p><?php echo $post["body"];?></p>
-                    
-                        <a class="card-link" href="/show">
+                        
+                        
+                        <a class="card-link" href=<?php echo "show/".$post["id"];?>>
                             詳細を見る
                         </a>
                     </div>

@@ -27,21 +27,38 @@ class PostsController
         //viewを呼び出す
         include($this->views."posts/index.php");
     }
-  
     public function create()
    {
-    $values = $this->init();
-    include($this->views."posts/create.php");
+        $values = $this->init();
+        include($this->views."posts/create.php");
    }
-   public function show()
+   public function store()
    {
-    $values = $this->init();
-    include($this->views."posts/show.php");
+        $values = $this->init();
+            
+        include($this->models.'Post.php');
+        $postmodel = new Post();
+        $result = $postmodel->store();
+        
+        include($this->views."posts/create.php");
+   }
+
+   public function show($article_id)
+   {
+        $values = $this->init();
+        
+        include($this->models.'Post.php');
+        $postmodel = new Post();
+        $result = $postmodel->show($article_id);
+        
+        $post = $result[0];
+
+        include($this->views."posts/show.php");
    }
    public function edit()
    {
-    $values = $this->init();
-    include($this->views."posts/edit.php");
+        $values = $this->init();
+        include($this->views."posts/edit.php");
    }
 
 }

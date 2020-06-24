@@ -18,13 +18,12 @@
             
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h2><?php echo "SkillHacks";?></h1>
+                        <h2><?php echo $post["title"];?></h1>
                     </div>
                     <div class="card-body">
-                        <p><?php echo "Webアプリ講座";?></p>
+                        <p><?php echo $post["body"];?></p>
                     </div>
                 </div>
-            
         </div>        
     </main>
     <?php include($values["layouts"]."footer.php");?>
